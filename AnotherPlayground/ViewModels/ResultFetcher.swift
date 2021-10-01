@@ -14,14 +14,21 @@ class ResultFetcher: ObservableObject {
     private let initialPostHashHex: String = "77601b28ae670ab6fad425eb6bf76b9ea0c85a348863054c5abe98a3f1bae979"
     
     init () {
-        
-        updateData(postHashHex: initialPostHashHex)
+
+        updateData(postLink: initialPostHashHex)
         
     }
     
+    func extractHashHexFromURL(url: String) -> String {
+        let url = URL(string: url)?.lastPathComponent
+        
+        return url ?? ""
+    }
     
-    func updateData(postHashHex: String) {
-        getData(postHashHex: postHashHex) { clout in
+    
+    func updateData(postLink: String) {
+        let hashHex = extractHashHexFromURL(url: postLink)
+        getData(postHashHex: hashHex) { clout in
             self.clout = clout
         }
     }

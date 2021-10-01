@@ -24,17 +24,14 @@ struct ContentView: View {
                     .font(.title2)
                     .padding()
                     .onChange(of: text) { text in
-                        resultFetcher.updateData(postHashHex: text)
+                        resultFetcher.updateData(postLink: text)
                     }
                 
                 Spacer()
-                
-                Text(resultFetcher.clout.postFound?.body ?? "n/a")
-                
-                Spacer()
+                            
                 
                 NavigationLink(
-                    destination: View2(), label: {
+                    destination: View2(result: resultFetcher), label: {
                         
                         Text("Press me to go to next view")
                         

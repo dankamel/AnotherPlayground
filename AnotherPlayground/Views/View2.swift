@@ -9,15 +9,15 @@ import SwiftUI
 
 struct View2: View {
     
-    @StateObject var resultFetcher = ResultFetcher()
+    var resultFetcher = ResultFetcher()
+    
+    init(result: ResultFetcher) {
+        self.resultFetcher = result
+    }
     
     var body: some View {
-        Text(resultFetcher.clout.postFound?.body ?? "n/a")
+        Text(resultFetcher.clout.postFound?.body ?? "")
+            .padding(.horizontal)
     }
 }
 
-struct View2_Previews: PreviewProvider {
-    static var previews: some View {
-        View2()
-    }
-}
