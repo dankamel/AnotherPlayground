@@ -16,8 +16,7 @@ struct View2: View {
     }
     
     var body: some View {
-        Text(resultFetcher.clout.postFound?.body ?? "")
-            .padding(.horizontal)
+        View3(result: resultFetcher)
     }
 }
 
